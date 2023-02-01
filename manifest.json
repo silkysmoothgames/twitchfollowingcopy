@@ -1,0 +1,29 @@
+{
+    "name": "Following saver",
+    "description": "Save following channels",
+    "manifest_version": 3,
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Following saver"
+    },
+    "permissions": [
+        "activeTab",
+        "clipboardWrite",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.twitch.tv/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
